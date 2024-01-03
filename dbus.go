@@ -3,10 +3,11 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"log"
+
 	"github.com/godbus/dbus/v5"
 	"github.com/unix-streamdeck/api"
 	"github.com/unix-streamdeck/streamdeckd/handlers"
-	"log"
 )
 
 var conn *dbus.Conn
@@ -82,7 +83,7 @@ func (StreamDeckDBus) GetModules() (string, *dbus.Error) {
 
 func (StreamDeckDBus) PressButton(serial string, keyIndex int) *dbus.Error {
 	dev, ok := devs[serial]
-	if !ok || !dev.IsOpen{
+	if !ok || !dev.IsOpen {
 		return dbus.MakeFailedError(errors.New("Can't find connected device: " + serial))
 	}
 	HandleInput(dev, &dev.Config[dev.Page][keyIndex], dev.Page)
