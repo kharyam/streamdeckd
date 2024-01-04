@@ -83,7 +83,7 @@ func (t *ObsSceneIconHandler) obsQueryLoop(k api.Key, info api.StreamDeckInfo, c
 				continue
 			}
 
-			tString := resp.CurrentProgramSceneName
+			tString := "Scene:\n" + resp.CurrentProgramSceneName
 			imgParsed, err := api.DrawText(img, tString, k.TextSize, k.TextAlignment)
 			if err != nil {
 				log.Println(err)
@@ -97,5 +97,5 @@ func (t *ObsSceneIconHandler) obsQueryLoop(k api.Key, info api.StreamDeckInfo, c
 func RegisterObsScene() handlers.Module {
 	return handlers.Module{NewIcon: func() api.IconHandler {
 		return &ObsSceneIconHandler{Running: true}
-	}, Name: "OBS Scene", IconFields: []api.Field{{Title: "OBS Host", Name: "obs_host", Type: "Text"}, {Title: "OBS Port", Name: "obs_port", Type: "Number"}, {Title: "OBS Password", Name: "obs_password", Type: "Text"}}}
+	}, Name: "OBS Scene", IconFields: []api.Field{{Title: "OBS Host", Name: "obs_host", Type: "Text"}, {Title: "OBS Port", Name: "obs_port", Type: "Number"}, {Title: "OBS Password", Name: "obs_password", Type: "Password"}}}
 }

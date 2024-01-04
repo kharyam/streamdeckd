@@ -36,10 +36,11 @@ func (t *ObsSceneSwitchKeyHandler) Key(key api.Key, info api.StreamDeckInfo) {
 }
 
 func RegisterObsSceneSwitch() handlers.Module {
+
 	return handlers.Module{NewKey: func() api.KeyHandler {
 		return &ObsSceneSwitchKeyHandler{}
 	}, Name: "ObsSceneSwitch",
-		KeyFields: []api.Field{{Title: "OBS Host", Name: "obs_host", Type: "Text"}, {Title: "OBS Port", Name: "obs_port", Type: "Number"}, {Title: "OBS Password", Name: "obs_password", Type: "Text"}, {Title: "Scene Name", Name: "scene_name", Type: "Text"}, {Title: "Command", Name: "scene_command", Type: "Text"}}}
+		KeyFields: []api.Field{{Title: "OBS Host", Name: "obs_host", Type: "Text"}, {Title: "OBS Port", Name: "obs_port", Type: "Number"}, {Title: "OBS Password", Name: "obs_password", Type: "Password"}, {Title: "Scene Name", Name: "scene_name", Type: "Text"}, {Title: "Command", Name: "scene_command", Type: "Text"}}}
 }
 
 // TODO This was copied from main.  Put it in a common package and import it into main and this package.
