@@ -43,7 +43,7 @@ func (t *Time12IconHandler) timeLoop(k api.Key, info api.StreamDeckInfo, callbac
 			return
 		default:
 			img := image.NewRGBA(image.Rect(0, 0, info.IconSize, info.IconSize))
-			draw.Draw(img, img.Bounds(), image.Black, image.ZP, draw.Src)
+			draw.Draw(img, img.Bounds(), image.Black, image.Point{}, draw.Src)
 			t := time.Now()
 			tString := t.Format("3:04:05 pm")
 			imgParsed, err := api.DrawText(img, tString, k.TextSize, k.TextAlignment)

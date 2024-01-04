@@ -8,4 +8,6 @@ func RegisterBaseModules() {
 	handlers.RegisterModule(RegisterTime12())
 	handlers.RegisterModule(RegisterCounter())
 	handlers.RegisterModule(RegisterSpotify())
+	handlers.RegisterModule(RegisterObsScene())
+	handlers.RegisterModule(RegisterObsSceneSwitch())
 }
